@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차준호 | About Me</title>
+    <meta name="description" content="차준호의 자기소개 페이지 - 웹 개발을 공부하는 개발자">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 커서 따라다니는 글로우 -->
+    <div id="cursor-glow"></div>
+
+    <!-- 파티클 배경 -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 네비게이션 -->
+    <nav id="navbar">
+        <div class="nav-logo">JH<span class="dot">.</span></div>
+        <div class="nav-links">
+            <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#timeline" class="nav-link" data-section="timeline">Journey</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+        <button id="theme-toggle" aria-label="테마 전환">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">👋 안녕하세요</div>
+            <h1 class="hero-title">
+                <span class="line">저는</span>
+                <span class="line highlight-wrap">
+                    <span class="highlight">차준호</span>
+                </span>
+                <span class="line">입니다</span>
+            </h1>
+            <p class="hero-subtitle">웹의 세계를 탐험하는 주니어 개발자</p>
+            <div class="hero-tags">
+                <span class="tag" style="--delay: 0">🎨 Creative</span>
+                <span class="tag" style="--delay: 1">💻 Developer</span>
+                <span class="tag" style="--delay: 2">📚 Learner</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">더 알아보기</a>
+                <a href="#contact" class="btn btn-ghost">연락하기</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- 어바웃 섹션 -->
+    <section id="about" class="section about-section">
+        <div class="section-header">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title">저를 소개합니다</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-card about-main">
+                <div class="about-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-emoji">🧑‍💻</div>
+                </div>
+                <div class="about-text">
+                    <h3>꿈꾸는 개발자</h3>
+                    <p>
+                        안녕하세요! 웹 개발의 매력에 빠져 열심히 공부하고 있는 차준호입니다. 
+                        HTML, CSS, JavaScript를 기반으로 사용자에게 즐거운 경험을 줄 수 있는 
+                        웹 애플리케이션을 만드는 것이 목표입니다.
+                    </p>
+                    <p>
+                        깔끔한 코드, 아름다운 디자인, 그리고 직관적인 인터랙션. 
+                        이 세 가지를 조화롭게 구현하는 개발자가 되고 싶습니다.
+                    </p>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card" style="--delay: 0">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">학습 열정 %</div>
+                </div>
+                <div class="stat-card" style="--delay: 1">
+                    <div class="stat-icon">📂</div>
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">프로젝트</div>
+                </div>
+                <div class="stat-card" style="--delay: 2">
+                    <div class="stat-icon">☕</div>
+                    <div class="stat-number" data-target="999">0</div>
+                    <div class="stat-label">커피 잔</div>
+                </div>
+                <div class="stat-card" style="--delay: 3">
+                    <div class="stat-icon">🐛</div>
+                    <div class="stat-number" data-target="42">0</div>
+                    <div class="stat-label">잡은 버그</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 스킬 섹션 -->
+    <section id="skills" class="section skills-section">
+        <div class="section-header">
+            <span class="section-label">Skills</span>
+            <h2 class="section-title">기술 스택</h2>
+        </div>
+        <div class="skills-orbit">
+            <div class="orbit-center">
+                <span>🚀</span>
+                <p>Tech Stack</p>
+            </div>
+            <div class="skill-planet" style="--orbit: 1; --speed: 25s; --start: 0deg">
+                <div class="planet-inner">
+                    <span class="planet-icon">📄</span>
+                    <span class="planet-name">HTML</span>
+                </div>
+            </div>
+            <div class="skill-planet" style="--orbit: 1; --speed: 25s; --start: 120deg">
+                <div class="planet-inner">
+                    <span class="planet-icon">🎨</span>
+                    <span class="planet-name">CSS</span>
+                </div>
+            </div>
+            <div class="skill-planet" style="--orbit: 1; --speed: 25s; --start: 240deg">
+                <div class="planet-inner">
+                    <span class="planet-icon">⚡</span>
+                    <span class="planet-name">JS</span>
+                </div>
+            </div>
+            <div class="skill-planet" style="--orbit: 2; --speed: 35s; --start: 60deg">
+                <div class="planet-inner">
+                    <span class="planet-icon">🐙</span>
+                    <span class="planet-name">Git</span>
+                </div>
+            </div>
+            <div class="skill-planet" style="--orbit: 2; --speed: 35s; --start: 180deg">
+                <div class="planet-inner">
+                    <span class="planet-icon">🎯</span>
+                    <span class="planet-name">React</span>
+                </div>
+            </div>
+            <div class="skill-planet" style="--orbit: 2; --speed: 35s; --start: 300deg">
+                <div class="planet-inner">
+                    <span class="planet-icon">🌐</span>
+                    <span class="planet-name">API</span>
+                </div>
+            </div>
+        </div>
+        <div class="skill-bars">
+            <div class="skill-bar-item" data-skill="HTML / CSS" data-level="75">
+                <div class="skill-bar-header">
+                    <span>HTML / CSS</span>
+                    <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" style="--level: 75%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item" data-skill="JavaScript" data-level="60">
+                <div class="skill-bar-header">
+                    <span>JavaScript</span>
+                    <span class="skill-percent">60%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" style="--level: 60%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item" data-skill="Git & GitHub" data-level="50">
+                <div class="skill-bar-header">
+                    <span>Git & GitHub</span>
+                    <span class="skill-percent">50%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" style="--level: 50%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item" data-skill="React (학습중)" data-level="30">
+                <div class="skill-bar-header">
+                    <span>React <small>(학습중 🌱)</small></span>
+                    <span class="skill-percent">30%</span>
+                </div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill learning" style="--level: 30%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 타임라인 섹션 -->
+    <section id="timeline" class="section timeline-section">
+        <div class="section-header">
+            <span class="section-label">Journey</span>
+            <h2 class="section-title">나의 여정</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item" style="--delay: 0">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2026. 01</div>
+                    <h3>🚀 웹 개발 입문</h3>
+                    <p>HTML, CSS 기초를 배우기 시작했습니다. 첫 번째 웹 페이지를 직접 만드는 순간의 설렘!</p>
+                </div>
+            </div>
+            <div class="timeline-item" style="--delay: 1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2026. 02</div>
+                    <h3>⚡ JavaScript 학습</h3>
+                    <p>JavaScript로 인터랙티브한 웹을 만들기 시작. DOM 조작의 재미에 빠지다!</p>
+                </div>
+            </div>
+            <div class="timeline-item" style="--delay: 2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2026. 03</div>
+                    <h3>🎨 미니 프로젝트</h3>
+                    <p>마트료시카 인형 프로젝트를 비롯한 다양한 미니 프로젝트를 만들며 실력을 키우는 중!</p>
+                </div>
+            </div>
+            <div class="timeline-item" style="--delay: 3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">현재 ~ 미래</div>
+                    <h3>🌟 끝없는 성장</h3>
+                    <p>React, Node.js 등 더 넓은 세계로. 풀스택 개발자를 향한 여정은 계속됩니다!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact" class="section contact-section">
+        <div class="section-header">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">함께 해요</h2>
+        </div>
+        <div class="contact-grid">
+            <a href="https://github.com/chajunho" class="contact-card" target="_blank" rel="noopener noreferrer">
+                <div class="contact-icon">🐙</div>
+                <div class="contact-name">GitHub</div>
+                <div class="contact-detail">@chajunho</div>
+            </a>
+            <a href="mailto:hello@example.com" class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-name">Email</div>
+                <div class="contact-detail">hello@example.com</div>
+            </a>
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <div class="contact-name">Discord</div>
+                <div class="contact-detail">chajunho#0000</div>
+            </div>
+        </div>
+        <div class="contact-message">
+            <p>함께 프로젝트를 하거나 이야기를 나누고 싶다면 언제든 연락주세요! 🎉</p>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">JH<span class="dot">.</span></div>
+            <p>© 2026 차준호. Crafted with 💜 and lots of ☕</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
