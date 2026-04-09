@@ -1,43 +1,49 @@
-const doll = document.getElementById('matryoshka');
+const card = document.getElementById('city-card');
+const cityName = document.getElementById('city-name');
+const cityIcon = document.querySelector('.city-icon');
+const nextBtn = document.getElementById('next-btn');
 const levelText = document.getElementById('level-display');
 const statusText = document.getElementById('status');
-const face = doll.querySelector('.face');
 
 let currentLevel = 1;
 const maxLevel = 6;
 
-// 인형 데이터 (색상, 표정, 크기 비율)
-const dollData = [
-    { color: '#e53935', face: '😊', scale: 1 },
-    { color: '#fb8c00', face: '😄', scale: 0.85 },
-    { color: '#fdd835', face: '🙂', scale: 0.7 },
-    { color: '#43a047', face: '😮', scale: 0.55 },
-    { color: '#1e88e5', face: '😯', scale: 0.4 },
-    { color: '#8e24aa', face: '👶', scale: 0.25 }
+// 숨겨진 보석 같은 도시 데이터 (도시명, 배경색, 대표 아이콘)
+const cityData = [
+    { name: '할슈타트', color: '#e0f2f7', icon: '🏞️' }, // 오스트리아 호수 마을
+    { name: '콜마르', color: '#ffe0b2', icon: '🏘️' },   // 프랑스 동화 마을
+    { name: '셰프샤우엔', color: '#bbdefb', icon: '💙' }, // 모로코 파란 도시
+    { name: '블레드', color: '#c8e6c9', icon: '🏰' },   // 슬로베니아 호수 성
+    { name: '지로카스터', color: '#d7ccc8', icon: '⛰️' }, // 알바니아 돌의 도시
+    { name: '로텐부르크', color: '#f3e5f5', icon: '🥨' }  // 독일 중세 마을
 ];
 
-doll.addEventListener('click', () => {
+nextBtn.addEventListener('click', () => {
     if (currentLevel < maxLevel) {
         currentLevel++;
-        updateDoll();
     } else {
-        alert('마지막 인형입니다! 다시 처음으로 돌아갑니다.');
-        alert('🎉 축하합니다! 드디어 가장 작은 인형을 찾아냈어요! 정말 끈기 있으시네요.');
+        alert(`모든 도시 투어를 마쳤습니다! \n제작자: 차준호 (GitHub: chajunho5)`);
         currentLevel = 1;
-        updateDoll();
     }
+    updateCity();
 });
 
-function updateDoll() {
-    const data = dollData[currentLevel - 1];
+function updateCity() {
+    const data = cityData[currentLevel - 1];
     
+    // 애니메이션 효과 추가
+    card.classList.remove('pop-animation');
+    void card.offsetWidth; // 리플로우 강제 발생
+    card.classList.add('pop-animation');
+
     // 스타일 업데이트
-    doll.style.backgroundColor = data.color;
-    doll.style.transform = `scale(${data.scale})`;
-    face.textContent = data.face;
+    card.style.backgroundColor = data.color;
+    cityIcon.textContent = data.icon;
+    cityName.textContent = data.name;
     
     // 텍스트 업데이트
-    levelText.textContent = `Level: ${currentLevel} / ${maxLevel}`;
-    statusText.textContent = currentLevel === maxLevel ? "찾았다! 가장 작은 인형!" : "더 작은 인형이 들어있을까요?";
-    statusText.textContent = currentLevel === maxLevel ? "✨ 와! 이게 마지막이에요! ✨" : "안에 하나 더 있을지도 몰라요...";
+    levelText.textContent = `${currentLevel} / ${maxLevel}`;
+    statusText.textContent = currentLevel === maxLevel 
+        ? "✨ 차준호의 숨겨진 도시 리스트 끝! ✨" 
+        : "다음은 어떤 보석 같은 도시일까요?";
 }
